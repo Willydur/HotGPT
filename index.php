@@ -1,3 +1,15 @@
+<?php
+if (!isset($_GET['discution'])) {
+  $discution = array();
+  if (isset($_GET['text'])) {
+    $discution[] = $_GET['text'];
+  }
+} else {
+  $discution = $_GET['discution'];
+  $discution[] = $_GET['text'];
+}
+var_dump($discution);
+?>
 <html lang="fr">
 
 <head>
@@ -9,6 +21,7 @@
   <style>
     body {
       background-color: #343541;
+      color: white;
     }
 
     h1 {
@@ -26,8 +39,11 @@
       padding: 12px 20px;
       margin: 8px 0;
       box-sizing: border-box;
-      border: 2px solid #ccc;
+      border: 2px solid #40414f;
       margin-right: 2%;
+      background-color: #40414f;
+      color: white;
+      box-shadow: 0 0 10px black;
     }
 
     .input>form {
@@ -54,7 +70,7 @@
       opacity: 0.8;
     }
 
-    .dialogue {
+    center>.dialogue {
       disdisplay: flex;
       justify-content: center;
       align-items: center;
@@ -63,25 +79,20 @@
 </head>
 
 <body>
-  <center>
-    <br /><br /><br /><br /><br />
-    <h1>HotGPT</h1>
-    <div class="dialogue" style="display: flex; ">
-      <?php
-      $discution = array();
-      $text = $_GET['text'];
-      array_push($discution, $text);
-      // var_dump($discution);
-      
-      foreach ($discution as $val) {
-        echo "<p class='user-reponse'>" . $val . "</p>";
-      }
-      ?>
-    </div>
-  </center>
+  <div class="dialogue">
+    <?php
+    $text = $_GET['text'];
+    foreach ($discution as $text) {
+      echo "<p class='user-reponse'>" . $text . "</p>";
+    }
+    echo "<p class='user-reponse'>" . $text . "</p>";
+    ?>
+  </div>
+
   <center>
     <div class="input">
       <form action="index.php" method="GET">
+        <input type="hidden" name="discution" value="<?php echo implode(',', $discution); ?>" />
         <input type="text" name="text" placeholder="mangez des fruits et des legumes" />
         <button>Send</button>
       </form>
