@@ -84,7 +84,7 @@
     array_push($discution, $text);
   }
 
-  $_SESSION['discution'] = $discution[0];
+  $_SESSION['discution'] = $discution;
 
 
   echo '<center>';
@@ -96,28 +96,26 @@
   echo '</center>';
 
 
-  foreach ($discution as $com) {
+  for ($i = 0; $i < count($discution); $i++) {
     echo '<center>';
     echo '<div class="comment">';
     echo '<p>';
-    echo $com;
+    echo $discution[$i];
     echo '</p>';
     echo '</div>';
     echo '</center>';
   }
+
+  var_dump($discution);
   ?>
-
-
 
   <!-- <center>
     <div class="comment">
       <p>
-        <?php echo $_SESSION['discution'] ?>
+        test
       </p>
     </div>
   </center> -->
-
-
 
   <center>
     <div class="input">
