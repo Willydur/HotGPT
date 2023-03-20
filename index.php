@@ -1,3 +1,15 @@
+<?php
+  var_dump($_GET['discution']);
+  if(isset($_GET['discution'])){
+    $discution = explode("|", $_GET['discution']);
+    if(isset($_GET['text'])){
+      $discution[] = $_GET['text'];
+      $historique = implode("|", $discution);
+    }
+  }else{
+    $discution = array();
+  }
+?>
 <html lang="fr">
 
 <head>
@@ -75,54 +87,24 @@
   </center>
 
   <?php
-  session_start();
-
-  $discution = array();
-
-  if (isset($_GET['text'])) {
-    $text = $_GET['text'];
-    array_push($discution, $text);
-  }
-
-  $_SESSION['discution'] = $discution[0];
 
 
-  echo '<center>';
-  echo '<div class="comment">';
-  echo '<p>';
-  echo '🍆 🍑 🍆 🍌 💩';
-  echo '</p>';
-  echo '</div>';
-  echo '</center>';
+
+  echo '<center><div class="comment"><p>Hummm Parle moi de choses 😏</p></div></center>';
 
 
   foreach ($discution as $com) {
-    echo '<center>';
-    echo '<div class="comment">';
-    echo '<p>';
+    echo '<center><div class="comment"><p>';
     echo $com;
-    echo '</p>';
-    echo '</div>';
-    echo '</center>';
+    echo '</p></div></center>';
+    echo '<center><div class="comment"><p>☺️</p></div></center>';
   }
   ?>
-
-
-
-  <!-- <center>
-    <div class="comment">
-      <p>
-        <?php echo $_SESSION['discution'] ?>
-      </p>
-    </div>
-  </center> -->
-
-
 
   <center>
     <div class="input">
       <form action="index.php" method="GET">
-        <input type="hidden" name="discution" value="" />
+        <input type="hidden" name="discution" value="<?php if(isset($historique)){echo $historique;} ?>" />
         <input type="text" name="text" placeholder="mangez des fruits et des legumes" />
         <button>Send</button>
       </form>
