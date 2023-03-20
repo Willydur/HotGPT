@@ -1,15 +1,3 @@
-<?php
-  var_dump($_GET['discution']);
-  if(isset($_GET['discution'])){
-    $discution = explode("|", $_GET['discution']);
-    if(isset($_GET['text'])){
-      $discution[] = $_GET['text'];
-      $historique = implode("|", $discution);
-    }
-  }else{
-    $discution = array();
-  }
-?>
 <html lang="fr">
 
 <head>
@@ -87,7 +75,6 @@
   </center>
 
   <?php
-<<<<<<< HEAD
   session_start();
 
   $discution = array();
@@ -98,15 +85,17 @@
   }
 
   $_SESSION['discution'] = $discution;
-=======
->>>>>>> 1855ca7a0937321fa0d1a60632c2ee8afbd8f930
 
 
+  echo '<center>';
+  echo '<div class="comment">';
+  echo '<p>';
+  echo '🍆 🍑 🍆 🍌 💩';
+  echo '</p>';
+  echo '</div>';
+  echo '</center>';
 
-  echo '<center><div class="comment"><p>Hummm Parle moi de choses 😏</p></div></center>';
 
-
-<<<<<<< HEAD
   for ($i = 0; $i < count($discution); $i++) {
     echo '<center>';
     echo '<div class="comment">';
@@ -115,19 +104,11 @@
     echo '</p>';
     echo '</div>';
     echo '</center>';
-=======
-  foreach ($discution as $com) {
-    echo '<center><div class="comment"><p>';
-    echo $com;
-    echo '</p></div></center>';
-    echo '<center><div class="comment"><p>☺️</p></div></center>';
->>>>>>> 1855ca7a0937321fa0d1a60632c2ee8afbd8f930
   }
 
   var_dump($discution);
   ?>
 
-<<<<<<< HEAD
   <!-- <center>
     <div class="comment">
       <p>
@@ -136,12 +117,10 @@
     </div>
   </center> -->
 
-=======
->>>>>>> 1855ca7a0937321fa0d1a60632c2ee8afbd8f930
   <center>
     <div class="input">
       <form action="index.php" method="GET">
-        <input type="hidden" name="discution" value="<?php if(isset($historique)){echo $historique;} ?>" />
+        <input type="hidden" name="discution" value="" />
         <input type="text" name="text" placeholder="mangez des fruits et des legumes" />
         <button>Send</button>
       </form>
