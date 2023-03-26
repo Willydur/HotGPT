@@ -1,0 +1,71 @@
+body {
+  background-color: #343541;
+  color: white;
+}
+
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 45px;
+}
+
+/* css pour la liste des messages */
+.comment > p {
+  background-color: #40414f;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+.input > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  left: 5%;
+  width: 90%;
+}
+
+/* css pour la barre de saisis */
+input[type="text"] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #40414f;
+  margin-right: 2%;
+  background-color: #40414f;
+  color: white;
+  box-shadow: 0 0 10px black;
+}
+
+.input-block {
+  position: fixed;
+  bottom: 20px;
+  left: 5%;
+  width: 90%;
+}
+
+button {
+  background-color: #ffacac;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.content > p {
+  background-color: #40414f;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
